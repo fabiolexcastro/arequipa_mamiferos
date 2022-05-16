@@ -70,7 +70,12 @@ for(i in 1:12){
 }
 
 
-
+# Bioclim
+for(i in 1:19){
+  
+  terra::writeRaster(x = trra[[1]][[i]], filename = glue('{dout}/bioc_{i}.asc'))
+  
+}
 
 
 
