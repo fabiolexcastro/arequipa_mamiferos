@@ -70,15 +70,15 @@ for(i in 1:12){
 }
 
 
-# Bioclim
+# Bioclimatic variables
 for(i in 1:19){
   
-  terra::writeRaster(x = trra[[1]][[i]], filename = glue('{dout}/bioc_{i}.asc'))
+  terra::writeRaster(x = trra[[5]][[i]], filename = glue('{dout}/bioc_{i}.asc'))
   
 }
 
 
-
+# End
 
 
 
