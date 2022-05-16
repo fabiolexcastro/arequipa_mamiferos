@@ -35,6 +35,19 @@ trra <- purrr::map(.x = 1:length(vars), .f = function(i){
 })
 
 
+# To write the results ----------------------------------------------------
+
+dout <- '../raster/wc21/'
+dir_create(dout)
+
+# Precipitation
+terra::writeRaster(x = trra[[1]], filename = glue('{dout}/prec.tif'))
+
+
+
+
+
+
 
 
 
