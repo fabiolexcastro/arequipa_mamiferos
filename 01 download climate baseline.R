@@ -17,16 +17,19 @@ limt <- geodata::gadm(country = cntr, level = 0, path = '../tmpr')
 # To download 
 vars <- c('prec', 'tmax', 'tmin', 'tavg', 'bio')
 
-purrr::map(.x = 1:length(vars), .f = function(i){
+trra <- purrr::map(.x = 1:length(vars), .f = function(i){
   
   cat(bgGreen('Start ', i, '\n'))
   var <- vars[i]
-  
   rstr <- geodata::worldclim_country(country = cntr,
                                      var = var,
                                      path = '../tmpr')
   
-  rstr <- 
+  rstr <- terra::crop(rstr, limt)
+  rstr <- terra::mask(rstr, limt)
+  
+  cat('Done!\n')
+  return(rstr)
   
   
 })
