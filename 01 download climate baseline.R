@@ -57,6 +57,19 @@ terra::writeRaster(x = trra[[5]], filename = glue('{dout}/bioc.tif'))
 
 
 
+# To write en ascii -------------------------------------------------------
+
+# Prec, tmax, tmin, tavg
+for(i in 1:12){
+  
+  terra::writeRaster(x = trra[[1]][[i]], filename = glue('{dout}/prec_{i}.asc'))
+  terra::writeRaster(x = trra[[2]][[i]], filename = glue('{dout}/tmax_{i}.asc'))
+  terra::writeRaster(x = trra[[3]][[i]], filename = glue('{dout}/tmin_{i}.asc'))
+  terra::writeRaster(x = trra[[4]][[i]], filename = glue('{dout}/tavg_{i}.asc'))
+  
+}
+
+
 
 
 
