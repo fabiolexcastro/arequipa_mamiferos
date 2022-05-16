@@ -43,6 +43,18 @@ dir_create(dout)
 # Precipitation
 terra::writeRaster(x = trra[[1]], filename = glue('{dout}/prec.tif'))
 
+# T max 
+terra::writeRaster(x = trra[[2]], filename = glue('{dout}/tmax.tif'))
+
+# T min 
+terra::writeRaster(x = trra[[3]], filename = glue('{dout}/tmin.tif'))
+
+# T avg 
+terra::writeRaster(x = trra[[4]], filename = glue('{dout}/tavg.tif'))
+
+# Bioclimatic variables
+terra::writeRaster(x = trra[[5]], filename = glue('{dout}/bioc.tif'))
+
 
 
 
