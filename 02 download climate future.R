@@ -62,9 +62,13 @@ purrr::map(.x = 1:lenth(ssp), .f = function(i){
         # To write these raster 
         dout <- glue('../raster/future/cm6/peru/{ssp}/{mdl}/{prd}')
         ifelse(!file.exists(dout), dir_create(dout), print('Already exists'))
-        dout <- glue('{dout}/{gsub(".tif", ".asc", basename(pth1))}')
-        terra::writeRaster(rst1, dout, overwrite = TRUE)
         
+        purrr::map(.x = 1:12, .f = function(l){
+          cat(month.abb[l], '\t')
+          dout <- glue('{dout}/{var}_{l}.asc')
+          terra::writeRaster(rst1, dout, overwrite = TRUE)
+          cat('Write...!\n')
+        })
 
       })
       
