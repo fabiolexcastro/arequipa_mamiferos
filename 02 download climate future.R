@@ -51,7 +51,9 @@ purrr::map(.x = 1:lenth(ssp), .f = function(i){
         pth1 <- glue('{base}/{mdl}/{ssp}/wc2.1_30s_{var}_{mdl}_{ssp}_{prd}_tile-28.tif')
         dout <- glue('../raster/future/cm6/tile/{ssp}/{mdl}/{prd}')
         ifelse(!file.exists(dout), dir_create(dout), print('Exists'))
+        download.file(url = pth1, destfile = dout, mode = 'wb')
         
+        rst1 <- terra::rast(pth1)
         
         
         
