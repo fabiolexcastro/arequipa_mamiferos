@@ -48,7 +48,7 @@ purrr::map(.x = 1:lenth(ssp), .f = function(i){
         mdl <- mdls[k]
         var <- vars[v]
         
-        pth1 <- glue('{base}/{mdl}/{ssp}/wc2.1_30s_{var}_{mdl}_{ssp}_{prd}_tile-28.tif')
+        pth1 <- glue('{base}/{mdl}/{ssp}/wc2.1_30s_{var}_{mdl}_{ssp}_{prd}_tile-40.tif')
         dout <- glue('../raster/future/cm6/tile/{ssp}/{mdl}/{prd}')
         ifelse(!file.exists(dout), dir_create(dout), print('Exists'))
         dout <- glue('{dout}/{basename(pth1)}')
