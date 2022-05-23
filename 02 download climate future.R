@@ -58,7 +58,9 @@ purrr::map(.x = 1:lenth(ssp), .f = function(i){
         rst1 <- terra::rast(dout)
         rst1 <- terra::crop(rst1, limt)
         rst1 <- terra::mask(rst1, limt)
-        plot(rst1)
+        
+        plot(rst1[[1]])
+        plot(limt, add = TRUE)
         
         
         
