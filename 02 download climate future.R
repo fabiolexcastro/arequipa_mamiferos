@@ -48,7 +48,7 @@ purrr::map(.x = 1:lenth(ssp), .f = function(i){
         mdl <- mdls[k]
         var <- vars[v]
         
-        pth1 <- glue('{base}/{mdl}/{ssp}/wc2.1_30s_{vars[i]}_{mdl}_{ssp}_{prd}_tile-28.tif')
+        pth1 <- glue('{base}/{mdl}/{ssp}/wc2.1_30s_{vars}_{mdl}_{ssp}_{prd}_tile-28.tif')
         
         
         
