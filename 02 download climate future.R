@@ -54,8 +54,12 @@ purrr::map(.x = 1:lenth(ssp), .f = function(i){
         dout <- glue('{dout}/{basename(pth1)}')
         download.file(url = pth1, destfile = dout, mode = 'wb')
         
+        # To make the extract by mask for the country
         rst1 <- terra::rast(dout)
+        rst1 <- terra::crop(rst1, limt)
+        rst1 <- terra::mask(rst1, limt)
         plot(rst1)
+        
         
         
         
