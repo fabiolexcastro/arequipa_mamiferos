@@ -49,6 +49,7 @@ purrr::map(.x = 1:lenth(ssp), .f = function(i){
         var <- vars[v]
         
         pth1 <- glue('{base}/{mdl}/{ssp}/wc2.1_30s_{var}_{mdl}_{ssp}_{prd}_tile-28.tif')
+        dout <- glue('../raster/future/cm6/tile/{ssp}/{mdl}/{prd}')
         
         
         
