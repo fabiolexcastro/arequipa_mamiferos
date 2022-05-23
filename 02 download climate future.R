@@ -27,6 +27,20 @@ filter(isoc, NAME == 'Chile')
 
 # To apply the function ---------------------------------------------------
 
+# Proof
+ssp <- ssps[1]
+mdl <- mdls[1]
+prd <- prdo[1]
+
+# Loop
+purrr::map(.x = 1:lenth(ssp), .f = function(i){
+  
+  
+  
+})
+
+
+
 
 
 
