@@ -66,7 +66,7 @@ purrr::map(.x = 1:lenth(ssp), .f = function(i){
         purrr::map(.x = 1:12, .f = function(l){
           cat(month.abb[l], '\t')
           dout <- glue('{dout}/{var}_{l}.asc')
-          terra::writeRaster(rst1, dout, overwrite = TRUE)
+          terra::writeRaster(rst1[[l]], dout, overwrite = TRUE)
           cat('Write...!\n')
         })
 
