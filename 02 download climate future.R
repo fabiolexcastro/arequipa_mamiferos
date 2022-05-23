@@ -21,6 +21,9 @@ dir.create(cntr)
 limt <- geodata::gadm(country = cntr, level = 0, path = '../tmpr')
 plot(limt)
 
+isoc <- country_codes()
+isoc <- as_tibble(isoc)
+
 # To apply the function ---------------------------------------------------
 
 
