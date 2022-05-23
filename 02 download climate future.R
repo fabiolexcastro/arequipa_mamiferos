@@ -35,7 +35,22 @@ prd <- prdo[1]
 # Loop
 purrr::map(.x = 1:lenth(ssp), .f = function(i){
   
-  
+  purrr::map(.x = 1:length(prdo), .f = function(j){
+    
+    purrr::map(.x = 1:length(mdls), .f = function(k){
+      
+      ssp <- ssps[i]
+      prd <- prds[j]
+      mdl <- mdls[k]
+      
+      path <- glue('{base}/{mdl}/{ssp}/wc2.1_30s_{vars[i]}_{mdl}_{ssp}_{prd}_tile-28.tif')
+
+      
+      
+      
+    })
+    
+  })
   
 })
 
