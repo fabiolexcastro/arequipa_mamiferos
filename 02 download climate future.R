@@ -59,12 +59,13 @@ purrr::map(.x = 1:lenth(ssp), .f = function(i){
         rst1 <- terra::crop(rst1, limt)
         rst1 <- terra::mask(rst1, limt)
         
-        plot(rst1[[1]])
-        plot(limt, add = TRUE)
+        # To write these raster 
+        dout <- glue('../raster/future/cm6/peru/{ssp}/{mdl}/{prd}')
+        ifelse(!file.exists(dout), dir_create(dout), print('Already exists'))
+        dout <- glue('{dout}/{gsub(".tif", ".asc", basename(pth1))}')
+        terra::writeRaster(rst1, dout, overwrite = TRUE)
         
-        
-        
-        
+
       })
       
     })
