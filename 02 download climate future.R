@@ -23,6 +23,7 @@ plot(limt)
 
 isoc <- country_codes()
 isoc <- as_tibble(isoc)
+filter(isoc, NAME == 'Chile')
 
 # To apply the function ---------------------------------------------------
 
