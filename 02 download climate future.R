@@ -54,7 +54,8 @@ purrr::map(.x = 1:lenth(ssp), .f = function(i){
         dout <- glue('{dout}/{basename(pth1)}')
         download.file(url = pth1, destfile = dout, mode = 'wb')
         
-        rst1 <- terra::rast(pth1)
+        rst1 <- terra::rast(dout)
+        plot(rst1)
         
         
         
