@@ -32,6 +32,7 @@ filter(isoc, NAME == 'Chile')
 ssp <- ssps[1]
 mdl <- mdls[1]
 prd <- prdo[1]
+var <- vars[1]
 
 # Loop
 purrr::map(.x = 1:lenth(ssp), .f = function(i){
@@ -45,6 +46,7 @@ purrr::map(.x = 1:lenth(ssp), .f = function(i){
         ssp <- ssps[i]
         prd <- prds[j]
         mdl <- mdls[k]
+        var <- vars[v]
         
         path <- glue('{base}/{mdl}/{ssp}/wc2.1_30s_{vars[i]}_{mdl}_{ssp}_{prd}_tile-28.tif')
         
