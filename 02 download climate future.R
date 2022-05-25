@@ -1,6 +1,4 @@
 
-
-
 # Load libraries ----------------------------------------------------------
 require(pacman)
 pacman::p_load(terra, sf, crayon, geodata, fs, tidyverse, glue)
@@ -22,9 +20,33 @@ dir.create(cntr)
 limt <- geodata::gadm(country = cntr, level = 0, path = '../tmpr')
 plot(limt)
 
+terra::writeVector(limt, '../shp/peru.shp')
+
 isoc <- country_codes()
 isoc <- as_tibble(isoc)
 filter(isoc, NAME == 'Chile')
+
+
+# To make the function ----------------------------------------------------
+download <- function(ssp, mdl, prd, var){
+  
+  cat('To download the climate change data\n')
+  path <- glue('{base}/{mdl}/{ssp}/wc2.1_30s_{var}_{mdl}_{ssp}_{prd}_tile-40.tif')
+  dout <- glue('../raster/future/cm6/tile/{ssp}/{mdl}/{prd}')
+  ifelse(!file.exists(dout), dir_create(dout), print('Exists'))
+  dout <- glue('{dout}/{basename(path)}')
+  download.file(url = path, destfile = dout, mode = 'wb')
+  
+  cat('To make the extract by mask\n')
+  fles <- dir_ls(dirname(dout))
+  fles <- as.character(fles)
+  print(fles)
+  
+  
+  
+}
+
+
 
 # To apply the function ---------------------------------------------------
 
@@ -35,6 +57,9 @@ prd <- prdo[1]
 var <- vars[1]
 
 # Loop
+
+
+
 purrr::map(.x = 1:length(ssp), .f = function(i){
   
   purrr::map(.x = 1:length(prdo), .f = function(j){
