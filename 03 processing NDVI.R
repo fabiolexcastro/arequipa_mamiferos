@@ -11,3 +11,9 @@ options(scipen = 999)
 # Load data ---------------------------------------------------------------
 path <- '../ndvi_clases'
 fles <- dir_ls(path, regexp = '.tif$')
+fles <- as.character(fles)
+
+# Getting for each country ------------------------------------------------
+chle <- grep('chile', fles, value = T)
+chle
+
