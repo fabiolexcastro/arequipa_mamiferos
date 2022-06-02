@@ -15,9 +15,6 @@ fles <- as.character(fles)
 
 
 # To make the scaling -----------------------------------------------------
-
-i <- 1
-
 rstr <- purrr::map(.x = 1:length(fles), .f = function(i){
   
   # To read as a raster the files
@@ -48,13 +45,8 @@ rstr <- purrr::map(.x = 1:length(fles), .f = function(i){
   tbl_all <- dplyr::select(tbl_all, x, y, NDVI_scale)
   rst <- terra::rast(tbl_all, type = 'xyz')
   rst
-  plot(rst)
-  
-  
-  
   cat('Done!\n')
-  
-  
+  return(rst)
   
 })
 
