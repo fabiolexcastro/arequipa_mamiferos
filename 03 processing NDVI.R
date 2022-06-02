@@ -43,6 +43,12 @@ rstr <- purrr::map(.x = 1:length(fles), .f = function(i){
   tbl_pos <- mutate(tbl_pos, NDVI_scale = (NDVI - min(NDVI)) / (max(NDVI) - min(NDVI)))
   hist(tbl_pos$NDVI_scale, main = 'Hist negative values')
   
+  # Join the previous tibbles into only one
+  tbl_all <- rbind(tbl_neg, tbl_pos)
+  tbl_all
+  
+  
+  
   cat('Done!\n')
   
   
