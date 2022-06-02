@@ -13,6 +13,7 @@ path <- '../ndvi_clases'
 fles <- dir_ls(path, regexp = '.tif$')
 fles <- as.character(fles)
 
+
 # To make the scaling -----------------------------------------------------
 
 i <- 1
@@ -34,8 +35,10 @@ rstr <- purrr::map(.x = 1:length(fles), .f = function(i){
   tbl_neg <- filter(tbl, NDVI < 0)
   tbl_neg <- mutate(tbl_neg, NDVI = NDVI * -1)
   tbl_neg <- mutate(tbl_neg, NDVI_scale = (NDVI - min(NDVI)) / (max(NDVI) - min(NDVI)))
+  tbl_neg <- mutate(tbl_neg, NDVI_scale = NDVI_scale * -1)
   hist(tbl_neg$NDVI_scale, main = 'Hist negative values')
   
+  # Positive values
   cat('Done!\n')
   
 })
