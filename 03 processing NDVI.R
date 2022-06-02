@@ -13,7 +13,21 @@ path <- '../ndvi_clases'
 fles <- dir_ls(path, regexp = '.tif$')
 fles <- as.character(fles)
 
-# Getting for each country ------------------------------------------------
-chle <- grep('chile', fles, value = T)
-chle
+# To make the scaling -----------------------------------------------------
+
+i <- 1
+
+rstr <- purr::map(.x = 1:length(fles), .f = function(i){
+  
+  # To read as a raster the files
+  cat(fles[i], '\n')
+  fle <- fles[i]
+  
+  
+  
+  
+  cat('Done!\n')
+  
+})
+
 
