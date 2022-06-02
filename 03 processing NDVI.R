@@ -17,13 +17,13 @@ fles <- as.character(fles)
 
 i <- 1
 
-rstr <- purr::map(.x = 1:length(fles), .f = function(i){
+rstr <- purrr::map(.x = 1:length(fles), .f = function(i){
   
   # To read as a raster the files
   cat(fles[i], '\n')
   fle <- fles[i]
-  
-  
+  rst <- terra::rast(fle)
+  plot(rst)
   
   
   cat('Done!\n')
