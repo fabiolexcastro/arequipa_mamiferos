@@ -23,8 +23,9 @@ rstr <- purrr::map(.x = 1:length(fles), .f = function(i){
   cat(fles[i], '\n')
   fle <- fles[i]
   rst <- terra::rast(fle)
-  plot(rst)
-  
+  rst
+  scl <- terra::scale(rst)
+  scl
   
   cat('Done!\n')
   
