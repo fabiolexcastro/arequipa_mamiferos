@@ -26,11 +26,14 @@ rstr <- purrr::map(.x = 1:length(fles), .f = function(i){
   rst
   scl <- terra::scale(rst)
   scl
-  tbl <- terra::as.data.frame(tbl, xy = TRUE)
+  tbl <- terra::as.data.frame(scl, xy = TRUE)
   tbl <- as_tibble(tbl)
   head(tbl)
   
-  # Negative values 
+  # Negative values
+  tbl_neg <- filter(tbl, NDVI < 0)
+  tbl_neg <- mutate(tbl_neg NDVI = NDVI * -1)
+  mutate(tbl_neg, NDVI_scale = (NDVI - min(NDVI)) / (max(NDVI) - min(NDVI)))
   
   
   cat('Done!\n')
