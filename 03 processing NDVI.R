@@ -45,7 +45,10 @@ rstr <- purrr::map(.x = 1:length(fles), .f = function(i){
   
   # Join the previous tibbles into only one
   tbl_all <- rbind(tbl_neg, tbl_pos)
-  tbl_all
+  tbl_all <- dplyr::select(tbl_all, x, y, NDVI_scale)
+  rst <- terra::rast(tbl_all, type = 'xyz')
+  rst
+  plot(rst)
   
   
   
