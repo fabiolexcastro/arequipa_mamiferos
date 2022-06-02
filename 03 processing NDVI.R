@@ -39,7 +39,13 @@ rstr <- purrr::map(.x = 1:length(fles), .f = function(i){
   hist(tbl_neg$NDVI_scale, main = 'Hist negative values')
   
   # Positive values
+  tbl_pos <- filter(tbl, NDVI > 0)
+  tbl_pos <- mutate(tbl_pos, NDVI_scale = (NDVI - min(NDVI)) / (max(NDVI) - min(NDVI)))
+  hist(tbl_pos$NDVI_scale, main = 'Hist negative values')
+  
   cat('Done!\n')
+  
+  
   
 })
 
