@@ -26,6 +26,12 @@ rstr <- purrr::map(.x = 1:length(fles), .f = function(i){
   rst
   scl <- terra::scale(rst)
   scl
+  tbl <- terra::as.data.frame(tbl, xy = TRUE)
+  tbl <- as_tibble(tbl)
+  head(tbl)
+  
+  # Negative values 
+  
   
   cat('Done!\n')
   
