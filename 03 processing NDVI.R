@@ -70,8 +70,12 @@ plot(mask_chle)
 
 mask_ecu1 <- geodata::worldclim_tile(var = 'prec', lon = -76, lat = 1, path = '../tmpr')
 mask_ecu1 <- terra::crop(mask_ecu1, ecua) %>% terra::mask(., ecua)
+plot(mask_ecu1[[1]])
+mask_ecu1 <- mask_ecu1[[1]] * 0
 
-
+mask_ecu2 <- geodata::worldclim_tile(var = 'prec', lon = -80, lat = -5, path = '../tmpr')
+mask_ecu2 <- terra::crop(mask_ecu2, ecua) %>% terra::mask(., ecua)
+mask_ecu2 <- mask_ecu2[[1]] * 0
 
 
 
