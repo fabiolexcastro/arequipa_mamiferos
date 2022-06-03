@@ -81,39 +81,14 @@ mask_ecua <- mosaic(mask_ecu1, mask_ecu2)
 plot(mask_ecua)
 
 mask_peru <- geodata::worldclim_tile(var = 'prec', lon = -75, lat = -10, path = '../tmpr')
-mask_peru <- terra::crop(mask_peru, chle) %>% terra::mask(., chle)
-
-
-
-
-
-
-
-
-# To 1 km 
-dir.create('../tmpr')
-mask_peru <- geodata::worldclim_country(country = 'PER', var = 'prec',  path = '../tmpr')
-mask_chle <- geodata::worldclim_country(country = 'CHL', var = 'prec', path = '../tmpr')
-mask_ecua <- geodata::worldclim_country(country = 'ECU', var = 'prec', path = '../tmpr')
-
-mask_peru <- mask_peru[[1]] * 0 
-mask_chle <- mask_chle[[1]] * 0 
-mask_ecua <- mask_ecua[[1]] * 0 
-
-par(mfrow = c(1, 3))
-plot(mask_peru)
-plot(mask_chle)
-plot(mask_ecua)
-par(mfrow = c(1, 1))
-
-peru <- geodata::gadm(country = 'PER', level = 0, path = '../tmpr')
-chle <- geodata::gadm(country = 'CHL', level = 0, path = '../tmpr')
-ecua <- geodata::gadm(country = 'ECU', level = 0, path = '../tmpr')
-
-# To extract by mask 
 mask_peru <- terra::crop(mask_peru, peru) %>% terra::mask(., peru)
-mask_chle <- terra::crop(mask_chle, peru) %>% terra::mask(., chle)
-mask_ecua <- terra::crop(mask_ecua, peru) %>% terra::mask(., ecua)
+mask_peru <- mask_peru[[1]] * 0
+
+# Chile -----------------
+rstr[[1]] <- terra::resample(rstr[[1]], mask_chle)
+
+
+
 
 # To make the mosaic ------------------------------------------
 
