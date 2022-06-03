@@ -70,10 +70,15 @@ mask_ecua <- mask_ecua[[1]] * 0
 par(mfrow = c(1, 3))
 plot(mask_peru)
 plot(mask_chle)
-plot(mask_chle)
+plot(mask_ecua)
 par(mfrow = c(1, 1))
 
+peru <- geodata::gadm(country = 'PER', level = 0, path = '../tmpr')
+chle <- geodata::gadm(country = 'CHL', level = 0, path = '../tmpr')
+ecua <- geodata::gadm(country = 'ECU', level = 0, path = '../tmpr')
+
 # To make the mosaic ------------------------------------------
+r
 
 
 
