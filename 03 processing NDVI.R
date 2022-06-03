@@ -63,6 +63,9 @@ mask_peru <- geodata::worldclim_country(country = 'PER', var = 'prec',  path = '
 mask_chle <- geodata::worldclim_country(country = 'CHL', var = 'prec', path = '../tmpr')
 mask_ecua <- geodata::worldclim_country(country = 'ECU', var = 'prec', path = '../tmpr')
 
+mask_peru <- mask_peru[[1]] * 0 
+mask_chle <- mask_chle[[1]] * 0 
+mask_ecua <- mask_ecua[[1]] * 0 
 
 
 # To make the mosaic ------------------------------------------
