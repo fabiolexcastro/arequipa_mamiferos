@@ -57,6 +57,13 @@ plot(rstr[[3]]) # Peru
 
 # To make the rscale -----------------------------------------
 
+# Plotting spatial data
+plot(chle)
+
+mask_chle <- geodata::worldclim_tile(var = 'prec', lon = , lat = , path = '../tmpr')
+
+
+
 # To 1 km 
 dir.create('../tmpr')
 mask_peru <- geodata::worldclim_country(country = 'PER', var = 'prec',  path = '../tmpr')
