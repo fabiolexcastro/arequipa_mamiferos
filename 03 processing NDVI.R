@@ -51,3 +51,13 @@ rstr <- purrr::map(.x = 1:length(fles), .f = function(i){
 })
 
 
+# Checking the results
+plot(rstr[[1]])
+plot(rstr[[2]])
+plot(rstr[[3]])
+
+
+
+
+
+
