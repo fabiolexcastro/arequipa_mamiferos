@@ -50,11 +50,25 @@ rstr <- purrr::map(.x = 1:length(fles), .f = function(i){
   
 })
 
-
 # Checking the results
-plot(rstr[[1]])
-plot(rstr[[2]])
-plot(rstr[[3]])
+plot(rstr[[1]]) # Chile
+plot(rstr[[2]]) # Ecuador
+plot(rstr[[3]]) # Peru
+
+# To make the rscale -----------------------------------------
+
+# To 1 km 
+dir.create('../tmpr')
+mask_peru <- geodata::worldclim_country(country = 'PER', var = 'prec',  path = '../tmpr')
+mask_chle <- geodata::worldclim_country(country = 'CHL', var = 'prec', path = '../tmpr')
+mask_ecua <- geodata::worldclim_country(country = 'ECU', var = 'prec', path = '../tmpr')
+
+
+
+# To make the mosaic ------------------------------------------
+
+
+
 
 
 
