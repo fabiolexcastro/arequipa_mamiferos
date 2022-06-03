@@ -60,8 +60,9 @@ plot(rstr[[3]]) # Peru
 # Plotting spatial data
 plot(chle)
 
-mask_chle <- geodata::worldclim_tile(var = 'prec', lon = , lat = , path = '../tmpr')
-
+mask_chle <- geodata::worldclim_tile(var = 'prec', lon = -30, lat = -70, path = '../tmpr')
+mask_chle <- terra::crop(mask_chle, chle) %>% terra::mask(., chle)
+plot(chle); plot(mask_chle, add = TRUE, border = 'blue')
 
 
 # To 1 km 
