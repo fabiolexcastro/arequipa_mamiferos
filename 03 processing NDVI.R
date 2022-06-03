@@ -77,8 +77,12 @@ peru <- geodata::gadm(country = 'PER', level = 0, path = '../tmpr')
 chle <- geodata::gadm(country = 'CHL', level = 0, path = '../tmpr')
 ecua <- geodata::gadm(country = 'ECU', level = 0, path = '../tmpr')
 
+# To extract by mask 
+mask_peru <- terra::crop(mask_peru, peru) %>% terra::mask(., peru)
+mask_chle <- terra::crop(mask_chle, peru) %>% terra::mask(., chle)
+mask_ecua <- terra::crop(mask_ecua, peru) %>% terra::mask(., ecua)
+
 # To make the mosaic ------------------------------------------
-r
 
 
 
