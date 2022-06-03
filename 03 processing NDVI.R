@@ -90,11 +90,22 @@ rstr[[1]] <- terra::resample(rstr[[1]], mask_chle)
 rstr[[1]]
 plot(rstr[[1]])
 
+# Ecuador --------------
+rstr[[2]]<- terra::resample(rstr[[2]], mask_ecua)
+rstr[[2]]
+plot(rstr[[3]])
 
+# Peru -----------------
+rstr[[3]]<- terra::resample(rstr[[3]], mask_peru)
+rstr[[3]]
+plot(rstr[[3]])
 
+# Wirte the rasters -------------------------------------------------------
+dir.create('../ascii')
+terra::writeRaster(x = rstr[[1]], filename = '../ascii/ndvi_chle_1km.asc')
+terra::writeRaster(x = rstr[[2]], filename = '../ascii/ndvi_ecua_1km.asc')
+terra::writeRaster(x = rstr[[3]], filename = '../ascii/ndvi_peru_1km.asc')
 
-
-# To make the mosaic ------------------------------------------
 
 
 
