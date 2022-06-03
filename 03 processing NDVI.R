@@ -80,6 +80,8 @@ mask_ecu2 <- mask_ecu2[[1]] * 0
 mask_ecua <- mosaic(mask_ecu1, mask_ecu2)
 plot(mask_ecua)
 
+mask_peru <- geodata::worldclim_tile(var = 'prec', lon = -75, lat = -10, path = '../tmpr')
+mask_peru <- terra::crop(mask_peru, chle) %>% terra::mask(., chle)
 
 
 
