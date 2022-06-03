@@ -67,6 +67,11 @@ mask_peru <- mask_peru[[1]] * 0
 mask_chle <- mask_chle[[1]] * 0 
 mask_ecua <- mask_ecua[[1]] * 0 
 
+par(mfrow = c(1, 3))
+plot(mask_peru)
+plot(mask_chle)
+plot(mask_chle)
+par(mfrow = c(1, 1))
 
 # To make the mosaic ------------------------------------------
 
