@@ -87,6 +87,9 @@ mask_peru <- mask_peru[[1]] * 0
 # Chile -----------------
 terra::crs(rstr[[1]]) <- terra::crs(mask_chle)
 rstr[[1]] <- terra::resample(rstr[[1]], mask_chle)
+rstr[[1]]
+plot(rstr[[1]])
+
 
 
 
