@@ -48,6 +48,6 @@ ndvi_areq_100m <- terra::mask(areq_ndvi, areq)
 ndvi_areq_100m
 plot(ndvi_areq_100m)
 
-
+terra::writeRaster(x = ndvi_areq_100m, filename = '../ndvi_clases_scale/ndvi_arequipa_100m.tif', overwrite = T)
 
 
