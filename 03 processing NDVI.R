@@ -55,6 +55,15 @@ plot(rstr[[1]]) # Chile
 plot(rstr[[2]]) # Ecuador
 plot(rstr[[3]]) # Peru
 
+# To write these rasters 
+dout <- '../ndvi_clases_scale'
+dir_create('dout')
+
+terra::writeRaster(x = rstr[[1]], filename = glue('{dout}/ndvi_chle.tif'))
+terra::writeRaster(x = rstr[[2]], filename = glue('{dout}/ndvi_ecua.tif'))
+terra::writeRaster(x = rstr[[3]], filename = glue('{dout}/ndvi_peru.tif'))
+
+
 # To make the rscale -----------------------------------------
 
 # Plotting spatial data
