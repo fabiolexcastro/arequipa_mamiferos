@@ -40,6 +40,8 @@ x <- terra::crop(x, areq) %>% terra::mask(., areq)
 plot(x)
 values(x) <- 1
 plot(x)
+x <- terra::crop(x, areq) %>% terra::mask(., areq)
+plot(x)
 
 
 
