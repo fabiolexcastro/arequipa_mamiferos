@@ -43,6 +43,9 @@ plot(x)
 x <- terra::crop(x, areq) %>% terra::mask(., areq)
 plot(x)
 
+ndvi_peru_100m <- terra::resample(areq_ndvi, x)
+ndvi_peru_100m
+
 
 
 
