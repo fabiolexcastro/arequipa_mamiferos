@@ -21,6 +21,12 @@ plot(peru)
 areq <- peru[peru$NAME_1 == 'Arequipa',]
 plot(areq, add = TRUE, col = 'red')
 
+# Masking for arequipa
+areq_ndvi <- terra::mask(rstr[[3]], areq)
+plot(areq_ndvi)
+
+
+
 # Create a empty raster ---------------------------------------------------
 resolution <- 0.00083333
 ext <- terra::ext(mask)
