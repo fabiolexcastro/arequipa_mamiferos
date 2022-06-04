@@ -18,6 +18,8 @@ mask <- rstr[[1]] * 0
 peru <- gadm(country = 'PER', level = 1, path = '../tmpr')
 peru
 plot(peru)
+areq <- peru[peru$NAME_1 == 'Arequipa',]
+plot(areq, add = TRUE, col = 'red')
 
 # Create a empty raster ---------------------------------------------------
 resolution <- 0.00083333
