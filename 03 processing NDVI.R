@@ -91,6 +91,8 @@ rstr[[1]]
 plot(rstr[[1]])
 
 # Ecuador --------------
+raster::crs(mask_ecua)
+raster::crs(rstr[[2]])
 rstr[[2]]<- terra::resample(rstr[[2]], mask_ecua)
 rstr[[2]]
 plot(rstr[[3]])
