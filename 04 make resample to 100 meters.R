@@ -23,12 +23,11 @@ plot(areq, add = TRUE, col = 'red')
 
 # Masking for arequipa
 areq_ndvi <- terra::crop(rstr[[3]], areq)
-areq_ndvi <- terra::mask(areq_ndvi[[3]], areq)
+areq_ndvi <- terra::mask(areq_ndvi, areq)
 plot(areq_ndvi)
+mask <- area_ndvi * 0 + 1
 
-
-
-# Create a empty raster ---------------------------------------------------
+# Create a empty raster -----
 resolution <- 0.00083333
 ext <- terra::ext(mask)
 naraster <- terra::rast(terra::ext(mask), ncols = (diff(ext[1:2]/resolution)), nrow = (diff(ext[3:4]/resolution)))
