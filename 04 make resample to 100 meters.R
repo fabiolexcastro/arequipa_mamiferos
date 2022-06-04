@@ -45,6 +45,7 @@ plot(x)
 
 ndvi_peru_100m <- terra::resample(areq_ndvi, x)
 ndvi_peru_100m
+plot(ndvi_peru_100m)
 
 
 
