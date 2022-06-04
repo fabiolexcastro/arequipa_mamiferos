@@ -18,6 +18,9 @@ mask <- rstr[[1]] * 0
 resolution <- 0.00083333
 ext <- terra::ext(mask)
 naraster <- terra::rast(terra::ext(mask), ncols = (diff(ext[1:2]/resolution)), nrow = (diff(ext[3:4]/resolution)))
-values(naraster) <- 0
-
+x <- setValues(naraster, 1:ncell(naraster))
+x
+values(x) <- runif(ncell(x))
+x
+plot(x)
 
