@@ -98,6 +98,8 @@ rstr[[2]]
 plot(rstr[[3]])
 
 # Peru -----------------
+terra::crs(mask_peru)
+terra::crs(rstr[[3]]) <- terra::crs(mask_peru)
 rstr[[3]]<- terra::resample(rstr[[3]], mask_peru)
 rstr[[3]]
 plot(rstr[[3]])
