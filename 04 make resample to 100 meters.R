@@ -16,9 +16,8 @@ mask <- rstr[[1]] * 0
 
 # Create a empty raster ---------------------------------------------------
 resolution <- 0.00083333
-ext <- terra::extent(mask)
+ext <- terra::ext(mask)
 naraster <- terra::rast(terra::ext(mask), ncols = (diff(ext[1:2]/resolution)), nrow = (diff(ext[3:4]/resolution)))
-naraster[] <- 1
-naraster
+values(naraster) <- 0
 
 
