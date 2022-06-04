@@ -8,5 +8,8 @@ rm(list = ls())
 options(scipen = 999)
 
 # Load data ---------------------------------------------------------------
-path <- '../ndvi_classes_scale'
+path <- '../ndvi_clases_scale'
 fles <- dir_ls(path, regexp = '.tif') %>% as.character()
+
+rstr <- purrr::map(.x = fles, .f = terra::rast)
+
