@@ -57,7 +57,7 @@ plot(rstr[[3]]) # Peru
 
 # To write these rasters 
 dout <- '../ndvi_clases_scale'
-dir_create('dout')
+dir_create(dout)
 
 terra::writeRaster(x = rstr[[1]], filename = glue('{dout}/ndvi_chle.tif'))
 terra::writeRaster(x = rstr[[2]], filename = glue('{dout}/ndvi_ecua.tif'))
