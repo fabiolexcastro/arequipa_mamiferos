@@ -22,6 +22,7 @@ areq <- peru[peru$NAME_1 == 'Arequipa',]
 plot(areq, add = TRUE, col = 'red')
 
 # Masking for arequipa
+areq_ndvi <- terra::crop(rstr[[3]], areq)
 areq_ndvi <- terra::mask(rstr[[3]], areq)
 plot(areq_ndvi)
 
