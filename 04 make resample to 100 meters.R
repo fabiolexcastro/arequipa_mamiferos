@@ -14,6 +14,11 @@ fles <- dir_ls(path, regexp = '.tif') %>% as.character()
 rstr <- purrr::map(.x = fles, .f = terra::rast)
 mask <- rstr[[1]] * 0
 
+# Download administrative limits
+peru <- gadm(country = 'PER', level = 1, path = '../tmpr')
+peru
+plot(peru)
+
 # Create a empty raster ---------------------------------------------------
 resolution <- 0.00083333
 ext <- terra::ext(mask)
