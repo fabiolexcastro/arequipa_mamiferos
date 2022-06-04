@@ -36,4 +36,6 @@ x
 values(x) <- runif(ncell(x))
 x
 plot(x)
+x <- terra::crop(x, areq) %>% terra::mask(., areq)
+plot(x)
 
